@@ -27,6 +27,8 @@ a { color: inherit; }
 .site-nav a::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 1px; background: #fff; content: ''; transform: scaleX(0); transition: transform 180ms ease; }
 .site-nav a:hover, .site-nav a:focus-visible { color: #fff; }
 .site-nav a:hover::after, .site-nav a:focus-visible::after { transform: scaleX(1); }
+.site-nav a.is-active { color: #fff; }
+.site-nav a.is-active::after { transform: scaleX(1); }
 
 main, .site-footer { position: relative; z-index: 2; }
 .hero { position: relative; display: grid; min-height: 100svh; place-items: center; padding: 100px 20px 70px; text-align: center; }
@@ -106,7 +108,14 @@ main, .site-footer { position: relative; z-index: 2; }
     .work-card:nth-child(odd) { border-right: 0; }
     .proof-strip div { min-height: 120px; padding: 24px 14px; }
     .proof-strip span { font-size: 9px; letter-spacing: .1em; }
-    .reveal, .reveal.is-visible { opacity: 1; transform: none; }
+    body.mobile-motion .reveal { opacity: 0; transform: translateY(24px); transition-delay: var(--reveal-delay,0ms); }
+    body.mobile-motion .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    body.mobile-motion .work-card:nth-child(odd) { transform: translateX(-26px); }
+    body.mobile-motion .work-card:nth-child(even) { transform: translateX(26px); }
+    body.mobile-motion .work-card.is-visible { transform: translateX(0); }
+    body.mobile-motion .contact-panel { transform: translateY(20px) scale(.96); }
+    body.mobile-motion .contact-panel.is-visible { transform: translateY(0) scale(1); }
+    .floating-card:active, .work-card:active { border-color: rgba(255,255,255,.42); background: rgba(255,255,255,.09); transform: scale(.985); }
 }
 
 @media (max-width: 520px) {
@@ -126,4 +135,5 @@ main, .site-footer { position: relative; z-index: 2; }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    .reveal, .reveal.is-visible { opacity: 1 !important; transform: none !important; }
 }
