@@ -96,8 +96,8 @@ main, .site-footer { position: relative; z-index: 2; }
 @media (max-width: 800px) {
     .site-header { padding: 16px 18px; }
     .brand-mark { width: 38px; height: 38px; }
-    .site-nav { gap: 15px; }
-    .site-nav a { font-size: 9px; letter-spacing: .11em; }
+    .site-nav { gap: clamp(8px,2.8vw,15px); }
+    .site-nav a { font-size: clamp(8px,2.2vw,9px); letter-spacing: .08em; }
     .hero { padding-inline: 15px; }
     .hero h1 { font-size: 16vw; letter-spacing: .01em; white-space: normal; }
     .about-copy, .services-grid, .work-grid { grid-template-columns: 1fr; }
@@ -106,10 +106,10 @@ main, .site-footer { position: relative; z-index: 2; }
     .work-card:nth-child(odd) { border-right: 0; }
     .proof-strip div { min-height: 120px; padding: 24px 14px; }
     .proof-strip span { font-size: 9px; letter-spacing: .1em; }
+    .reveal, .reveal.is-visible { opacity: 1; transform: none; }
 }
 
 @media (max-width: 520px) {
-    .site-nav a:nth-child(2), .site-nav a:nth-child(3) { display: none; }
     .hero-logo { margin-bottom: 15px; }
     .hero .eyebrow { font-size: 14px; letter-spacing: .34em; }
     .tagline { max-width: 92%; margin-top: 25px; letter-spacing: .12em; }
