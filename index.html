@@ -1,429 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030406">
     <title>NOBODY CO — Ideas. Businesses. Ventures.</title>
-
-    <meta name="description"
-          content="NOBODY CO is a multidisciplinary business and parent brand building projects, businesses, and ventures across digital, creative, commercial, and emerging industries.">
-
+    <meta name="description" content="NOBODY CO helps businesses grow through digital marketing, consultancy, brand communication, clothing and merchandise, corporate gifting, and custom solutions.">
     <link rel="icon" type="image/png" href="./NBDYCOBLck.png">
-    <style>
-
-        /* =========================
-           BASIC RESET
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background: black;
-        }
-
-
-        /* =========================
-           BACKGROUND VIDEO
-        ========================= */
-
-        #backgroundVideo {
-
-            position: fixed;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            z-index: 1;
-        }
-
-
-        /* =========================
-           DARK OVERLAY
-        ========================= */
-
-        .overlay {
-
-            position: fixed;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            background: rgba(0, 0, 0, 0.25);
-
-            z-index: 2;
-        }
-
-
-        /* =========================
-           MAIN CONTENT
-        ========================= */
-
-        .content {
-
-            position: relative;
-
-            width: 100%;
-            height: 100%;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-            align-items: center;
-
-            text-align: center;
-
-            color: white;
-
-            z-index: 3;
-
-            padding: 20px;
-        }
-
-
-        /* =========================
-           LOGO
-        ========================= */
-
-        .logo {
-
-            width: 130px;
-            height: 130px;
-
-            object-fit: contain;
-
-            margin-bottom: 20px;
-
-           
-
-            opacity: 0.95;
-        }
-
-
-        /* =========================
-           WELCOME TO
-        ========================= */
-
-        h1 {
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            font-size: 22px;
-
-            font-weight: 400;
-
-            letter-spacing: 8px;
-
-            margin-bottom: 18px;
-
-            text-transform: uppercase;
-
-            text-shadow:
-                0 3px 15px rgba(0, 0, 0, 0.8);
-        }
-
-
-        /* =========================
-           NOBODY CO
-        ========================= */
-
-        h2 {
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            font-size: 150px;
-
-            font-weight: 700;
-
-            letter-spacing: 3px;
-
-            line-height: 0.9;
-
-            text-transform: uppercase;
-
-            white-space: nowrap;
-
-            text-shadow:
-                0 4px 30px rgba(0, 0, 0, 0.8);
-        }
-
-
-        /* =========================
-           TAGLINE
-        ========================= */
-
-        .tagline {
-
-            margin-top: 30px;
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            font-size: 25px;
-
-            font-weight: 300;
-
-            letter-spacing: 4px;
-
-            opacity: 0.9;
-
-            text-shadow:
-                0 3px 15px rgba(0, 0, 0, 0.8);
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-
-            margin-top: 40px;
-
-            text-align: center;
-        }
-
-
-        .contact-title {
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            font-size: 15px;
-
-            font-weight: 400;
-
-            letter-spacing: 5px;
-
-            text-transform: uppercase;
-
-            text-shadow:
-                0 3px 15px rgba(0, 0, 0, 0.8);
-        }
-
-
-        .phone {
-
-            margin-top: 12px;
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            font-size: 16px;
-
-            font-weight: 300;
-
-            letter-spacing: 3px;
-
-            text-shadow:
-                0 3px 15px rgba(0, 0, 0, 0.8);
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            .content {
-
-                padding: 15px;
-            }
-
-
-            .logo {
-
-                width: 90px;
-                height: 90px;
-
-                margin-bottom: 15px;
-            }
-
-
-            h1 {
-
-                font-size: 16px;
-
-                letter-spacing: 5px;
-
-                margin-bottom: 12px;
-            }
-
-
-            h2 {
-
-                font-size: 16vw;
-
-                letter-spacing: 1px;
-
-                white-space: normal;
-            }
-
-
-            .tagline {
-
-                font-size: 13px;
-
-                letter-spacing: 2px;
-
-                line-height: 1.6;
-
-                max-width: 90%;
-
-                margin-top: 25px;
-            }
-
-
-            .contact {
-
-                margin-top: 30px;
-            }
-
-
-            .contact-title {
-
-                font-size: 12px;
-
-                letter-spacing: 3px;
-            }
-
-
-            .phone {
-
-                font-size: 14px;
-
-                letter-spacing: 2px;
-
-                margin-top: 10px;
-            }
-
-        }
-
-    </style>
-
+    <link rel="stylesheet" href="./style.css">
 </head>
-
-
 <body>
+    <a class="skip-link" href="#about">Skip to content</a>
 
-
-    <!-- =========================
-         BACKGROUND VIDEO
-    ========================= -->
-
-    <video
-        id="backgroundVideo"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto">
-
-        <source
-            src="./universe.mp4"
-            type="video/mp4">
-
+    <video id="backgroundVideo" class="background-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="./universe.mp4" type="video/mp4">
     </video>
+    <div class="video-overlay" aria-hidden="true"></div>
 
+    <header class="site-header">
+        <a class="brand-mark" href="#home" aria-label="NOBODY CO home"><img src="./NBDYCO.png" alt=""></a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-    <!-- =========================
-         DARK OVERLAY
-    ========================= -->
-
-    <div class="overlay"></div>
-
-
-    <!-- =========================
-         WEBSITE CONTENT
-    ========================= -->
-
-    <main class="content">
-
-
-        <!-- LOGO -->
-
-        <img
-            src="./NBDYCO.png"
-            alt="NOBODY CO Logo"
-            class="logo">
-
-
-        <!-- TITLE -->
-
-        <h1>WELCOME TO</h1>
-
-        <h2>NOBODY CO</h2>
-
-
-        <!-- TAGLINE -->
-
-        <p class="tagline">
-            you are the universe experiencing itself
-        </p>
-
-
-        <!-- CONTACT -->
-
-        <div class="contact">
-
-            <div class="contact-title">
-                CONTACT
+    <main>
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <img src="./NBDYCO.png" alt="NOBODY CO Logo" class="hero-logo">
+                <p class="eyebrow">WELCOME TO</p>
+                <h1 id="hero-title">NOBODY CO</h1>
+                <p class="tagline">you are the universe experiencing itself</p>
+                <div class="hero-contact">
+                    <span>CONTACT</span>
+                    <a href="tel:+918600877043">+91 86008 77043</a>
+                </div>
             </div>
+            <a class="scroll-cue" href="#about" aria-label="Explore NOBODY CO">
+                <span>Explore</span><span class="scroll-line" aria-hidden="true"></span>
+            </a>
+        </section>
 
-            <div class="phone">
-                +91 86008 77043
+        <section class="section about-section" id="about" aria-labelledby="about-title">
+            <div class="section-shell reveal">
+                <p class="section-kicker">Who we are</p>
+                <h2 id="about-title">Ideas. Businesses.<br>Possibilities.</h2>
+                <div class="about-copy">
+                    <p>NOBODY CO is a multidisciplinary service company helping businesses grow through digital marketing, practical consultancy, brand communication, creative execution, corporate gifting, clothing and merchandise, and custom solutions.</p>
+                    <p>We understand the requirement, identify the right approach, and bring together the services needed to move the business forward.</p>
+                </div>
+                <div class="proof-strip" aria-label="Portfolio highlights">
+                    <div><strong>550+</strong><span>Creative outputs</span></div>
+                    <div><strong>30+</strong><span>Project families</span></div>
+                    <div><strong>One</strong><span>Flexible partner</span></div>
+                </div>
             </div>
+        </section>
 
-        </div>
+        <section class="section" id="services" aria-labelledby="services-title">
+            <div class="section-shell">
+                <div class="section-heading reveal">
+                    <p class="section-kicker">What we provide</p>
+                    <h2 id="services-title">Different needs.<br>The right solution.</h2>
+                    <p>Focused services that can work independently or come together around one business requirement.</p>
+                </div>
+                <div class="services-grid">
+                    <article class="floating-card reveal"><span class="card-number">01</span><h3>Digital Marketing</h3><p>Social media, content, campaigns, digital presence, and lead-focused communication.</p></article>
+                    <article class="floating-card reveal"><span class="card-number">02</span><h3>Industrial &amp; Real-Estate Marketing</h3><p>Property campaigns, industrial parks, location marketing, proposals, and sales collateral.</p></article>
+                    <article class="floating-card reveal"><span class="card-number">03</span><h3>Brand &amp; Corporate Communication</h3><p>Brand identity, company profiles, business communication, and consistent presentation.</p></article>
+                    <article class="floating-card reveal"><span class="card-number">04</span><h3>Presentations, Print &amp; Outdoor</h3><p>Corporate decks, brochures, newspaper advertising, hoardings, signage, and backdrops.</p></article>
+                    <article class="floating-card reveal"><span class="card-number">05</span><h3>Business Consultancy</h3><p>Practical guidance for positioning, marketing, customer acquisition, and communication.</p></article>
+                    <article class="floating-card reveal"><span class="card-number">06</span><h3>Events, Gifting, Clothing &amp; Custom Solutions</h3><p>Corporate gifting, clothing, merchandise, event collateral, mementos, and unique requirements.</p></article>
+                </div>
+            </div>
+        </section>
 
+        <section class="section work-section" id="work" aria-labelledby="work-title">
+            <div class="section-shell">
+                <div class="section-heading reveal">
+                    <p class="section-kicker">Previous work</p>
+                    <h2 id="work-title">Built across formats.<br>Connected by purpose.</h2>
+                    <p>A selection of the project families and ongoing work in our archive.</p>
+                </div>
+                <div class="work-grid">
+                    <article class="work-card reveal"><span>Integrated Marketing</span><h3>RMK Spaces</h3><p>Branding, social media, presentations, print, outdoor, and internal communication.</p></article>
+                    <article class="work-card reveal"><span>Location Marketing</span><h3>Talegaon MIDC</h3><p>Industrial positioning through presentations, press communication, video, and infrastructure stories.</p></article>
+                    <article class="work-card reveal"><span>Property Marketing</span><h3>RMK Industrial Parks</h3><p>Multi-property marketing, proposals, sales collateral, banners, and site communication.</p></article>
+                    <article class="work-card reveal"><span>Development Communication</span><h3>Taj Vivanta</h3><p>Construction updates, project videos, presentations, hoardings, and signage.</p></article>
+                    <article class="work-card reveal"><span>Institutional Identity</span><h3>Indrayani Vidya Mandir</h3><p>Identity, stationery, visiting cards, invitations, bags, flyers, and pamphlets.</p></article>
+                    <article class="work-card reveal"><span>B2B Campaigns</span><h3>Future Ready Spaces</h3><p>Expo presentations, event communication, and campaign collateral.</p></article>
+                    <article class="work-card reveal"><span>Internal Communication</span><h3>Corporate HR</h3><p>Induction, recruitment, monthly reviews, recognition, and employee communication.</p></article>
+                    <article class="work-card reveal"><span>Events &amp; Gifting</span><h3>Corporate Events</h3><p>Invitations, event backdrops, certificates, mementos, and recognition collateral.</p></article>
+                </div>
+            </div>
+        </section>
 
+        <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="contact-panel reveal">
+                <p class="section-kicker">Start a conversation</p>
+                <h2 id="contact-title">Tell us what your<br>business needs.</h2>
+                <p>Marketing, consulting, branding, print, clothing, gifting, or something unconventional—let's discuss it.</p>
+                <div class="contact-actions">
+                    <a class="primary-action" href="tel:+918600877043">Call NOBODY CO</a>
+                    <a class="secondary-action" href="https://wa.me/918600877043" target="_blank" rel="noreferrer">WhatsApp</a>
+                </div>
+                <a class="contact-number" href="tel:+918600877043">+91 86008 77043</a>
+            </div>
+        </section>
     </main>
 
-
-    <!-- =========================
-         FORCE VIDEO TO PLAY
-    ========================= -->
+    <footer class="site-footer">
+        <img src="./NBDYCO.png" alt="" aria-hidden="true">
+        <p>&copy; <span id="currentYear">2026</span> NOBODY CO</p>
+        <a href="#home">Back to top</a>
+    </footer>
 
     <script>
-
-        const video =
-            document.getElementById("backgroundVideo");
-
+        const video = document.getElementById('backgroundVideo');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         video.muted = true;
+        video.play().catch(() => document.body.classList.add('video-paused'));
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        video.play().catch(function(error) {
-
-            console.log(
-                "Video autoplay was prevented:",
-                error
-            );
-
-        });
-
+        if (reducedMotion) {
+            document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+        } else {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+        }
     </script>
-
-
 </body>
-
 </html>
