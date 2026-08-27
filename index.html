@@ -7,13 +7,7 @@
     <title>NOBODY CO — Ideas. Businesses. Ventures.</title>
     <meta name="description" content="NOBODY CO helps businesses grow through digital marketing, consultancy, brand communication, clothing and merchandise, corporate gifting, and custom solutions.">
     <link rel="icon" type="image/png" href="./NBDYCOBLck.png">
-    <link rel="stylesheet" href="./style.css?v=7">
-    <style>
-        @media (max-width: 800px) {
-            .reveal, .reveal.is-visible { opacity: 1 !important; transform: none !important; }
-            .site-nav a { display: inline-block !important; }
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css?v=8">
 </head>
 <body>
     <a class="skip-link" href="#about">Skip to content</a>
@@ -131,8 +125,67 @@
         video.play().catch(() => document.body.classList.add('video-paused'));
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        if (reducedMotion) {
-            document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+        const revealAll = () => document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+        const isMobile = window.matchMedia('(max-width: 800px)').matches;
+
+        if (reducedMotion || !('IntersectionObserver' in window)) {
+            revealAll();
+        } else if (isMobile) {
+            const serviceCards = document.querySelectorAll('.floating-card');
+            serviceCards.forEach((card, index) => card.style.setProperty('--reveal-delay', (index * 70) + 'ms'));
+
+            const countUp = (element) => {
+                if (element.dataset.counted === 'true') return;
+                const match = element.textContent.trim().match(/^(\d+)(.*)$/);
+                if (!match) return;
+                element.dataset.counted = 'true';
+                const target = Number(match[1]);
+                const suffix = match[2];
+                const startedAt = performance.now();
+                const tick = (now) => {
+                    const progress = Math.min((now - startedAt) / 1000, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    element.textContent = Math.round(target * eased) + suffix;
+                    if (progress < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+            };
+
+            const mobileObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    if (entry.target.classList.contains('proof-strip')) {
+                        entry.target.querySelectorAll('strong').forEach(countUp);
+                    }
+                    mobileObserver.unobserve(entry.target);
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+
+            document.body.classList.add('mobile-motion');
+            document.querySelectorAll('.reveal, .proof-strip').forEach((element) => mobileObserver.observe(element));
+
+            const navLinks = [...document.querySelectorAll('.site-nav a')];
+            const sections = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+            let navFrame;
+            const updateActiveNav = () => {
+                const marker = window.scrollY + window.innerHeight * .42;
+                let activeSection = sections[0];
+                sections.forEach((section) => {
+                    if (section.offsetTop <= marker) activeSection = section;
+                });
+                navLinks.forEach((link) => {
+                    const active = link.getAttribute('href') === '#' + activeSection.id;
+                    link.classList.toggle('is-active', active);
+                    if (active) link.setAttribute('aria-current', 'location');
+                    else link.removeAttribute('aria-current');
+                });
+                navFrame = null;
+            };
+            window.addEventListener('scroll', () => {
+                if (!navFrame) navFrame = requestAnimationFrame(updateActiveNav);
+            }, { passive: true });
+            updateActiveNav();
         } else {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
